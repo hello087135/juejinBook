@@ -1,0 +1,20 @@
+一. 为什么是webPack
+    1. webpack设计的优点
+        - 不同资源将可以互通,比如js,css,img,font等等
+        - 把所有的资源都看成是是一个module,比如js,css,img,font等等,可以对同一个代码进行
+        - 借助loader和plugin,webpack能够自动处理各种资源的打包和解析
+二. webpack的学习价值
+三. 如何高效的学习webpack
+    1. 由浅入深,循序渐进
+    2. 实践出真理
+    3. webpack配置繁多,应该根据实际场景选择合适的配置,并且记住常用的配置
+    4. 只是会还是不行,需要深入了解webpack,做好性能的优化,这里牵扯的比较多,领域比较广,我们要做的就是理解,并且举一反三
+    5. webPack主要只是实现了构建工具流程和Loader以及Plugin的架构,主体的功能还是Loader和Plugin实现的,因此需要掌握这两者的开发,方便理解webpack的架构
+    6. 掌握上面的之后,我们还应该深入理解,
+四. 小册讲什么
+    1. 基本用法,从构建开始
+    2. 性能优化
+    3. 实现loader和plugin
+    4. 了解webpack的底层原理
+总结:
+    1. webpack本身只是实现了构建工具流程和Loader以及Plugin的架构,主体的功能还是Loader和Plugin实现的,因此需要掌握这两者的开发,方便理解webpack的架构
