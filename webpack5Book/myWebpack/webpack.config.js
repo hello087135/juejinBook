@@ -17,4 +17,34 @@ module.exports={
         modules:[path.resolve(__dirname,'./src/testResolve/'),'node_modules'],
     },
     externals:['lodash','atest'],
+    optimization:{
+        // minimize:true,
+    },
+    target:"web",
+    // watch:true,
+    devtool:'source-map',
+    devServer:{
+        host:'0.0.0.0',
+        open:true,
+        lazy:true,
+        overlay:{
+            warnings:true,
+        },
+        hot:true,
+    },
+    // stats:'errors-only',
+    module:{
+        rules:[
+            {
+                test:/\.less$/,
+                use:[
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader:'less-loader',
+                    },
+                ],
+            }
+        ]
+    }
 }

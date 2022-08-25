@@ -1,7 +1,7 @@
 一. 前言
     1. webpack可以通过loader和plugin来满足大多数的前端场景,代价是复杂的配置,以及比较难的用法
 二. 结构化理解 Webpack 配置项
-    1. webpck的工作流程
+    1. webpack的工作流程
         - 输入, 从文件系统读入代码文件
         - 模块递归处理: 调用loader处理文件,并且生成AST语法树,然后根据模块之间的依赖关系,递归的去处理这的问题
         - 后处理,模块处理完成之后,进行模块合并,注入运行时,优化产物
@@ -18,3 +18,36 @@
             - resolve:解析模块的路径,可以简化模块的路径,常用的属性有modules和extensions以及alias
             - module:在整理进行模块的处理,通常在这里进行loader的配置
             - externals:声明外部资源,webpack会忽略这部分,这部分的功能应该由环境来提供
+        - 后处理
+            - optimization:优化项,可以配置模块的优化方式
+                - minimize: 是否进行代码的压缩,该值和mode的值相关
+                - minimizer:使用第三方的压缩工具,如uglifyjs
+                - splitChunks:拆分代码块,拆分代码块的目的是减少文件的体积
+            - target:指定打包的目标平台,根据不同的平台可能有不同的表现,常见的有node,electron,web
+            - mode:用于声明当前的编译环境,可以配置为development或production
+    4. 打包工具类相关的配置
+        - 开发效率类
+            - watch: 用于持续的构建,可以在watchOptions配置watch的参数
+            - devtool: 用于sourcemap的生成规则
+            - devServer:用于构建服务器,可以配置服务器的参数,以及HMR
+                - host:0.0.0.0可以让其他的局域网的设备访问
+                - open:自动打开浏览器,可以通过openPage配置打开的页面
+                - historyApiFallback:用于指定当使用HTML5 History API时,任意的404响应都可以指向index.html,也可以进行配置
+                - lazy:配置多入口文件的懒加载,默认的情况下会对所有的入口文件进行打包,设置该值之后,只有在访问的时候才会进行打包
+                - overlay:当出现错误或者警告的时候,会在浏览器的网页上显示一个全屏的错误或者警告信息,
+                - hot:当修改css文件的浏览器不会进行刷新,只会进行样式的更新,当修改js文件的时候,浏览器会进行刷新
+                - hotOnly:禁用掉所有的更新,一旦修改都会进行刷新
+                - port:webpack监听的端口号
+                - proxy:用于配置代理,常见的有target,pathRewrite,changeOrigin,secure,headers等属性
+                    - 比如:proxy: {'/api': {target: 'http://localhost:3000',changeOrigin: true}}
+        - 性能优化类
+            - cache:webpack5之后用于缓存编译信息和编译结果,webpack5可以做到持久化缓存,同样的功能还有Cache-loader,但是他仅仅只是缓存处理过的文件,同时其他的一些loader也自带一些缓存,比如babel-loader,eslint-loader等等.
+            cache可以通过设置type为'filesystem'来实现持久化缓存,type为'memory'的时候,只是缓存处理过的文件,不会持久化缓存,也可以通过设置buildDependencies,来监听哪些文件变化,停用缓存
+            - performance 用于配置当产物大于多少阀值的时候,如何通知开发者
+        - 日志类
+            - stats,用于配置打包的日志信息,可以配置的参数有hash,assets,chunks,colors,errors-warnings,modules,publicPath,timings,version,warnings,
+    5. 配置文件综合解析
+        - vue-cli:可以通过vue.config.js来配置webpack的参数, 也可以通过vue inspect > output.js来获取webpack的配置信息
+        - create-react-app:可以通过npm run eject来获取webpack的配置信息
+
+
