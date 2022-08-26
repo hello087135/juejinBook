@@ -16,13 +16,13 @@ module.exports={
         extensions:['.js','.json'],
         modules:[path.resolve(__dirname,'./src/testResolve/'),'node_modules'],
     },
-    externals:['lodash','atest'],
+    externals:['lodash',],   // 不会去打包这个模块
     optimization:{
         // minimize:true,
     },
     target:"web",
     // watch:true,
-    devtool:'source-map',
+    // devtool:'source-map',
     devServer:{
         host:'0.0.0.0',
         open:true,
@@ -44,6 +44,17 @@ module.exports={
                         loader:'less-loader',
                     },
                 ],
+            },
+            {
+                test:/\.js$/,
+                use:[
+                    {
+                        loader:'babel-loader',
+                        options:{
+                            presets:['@babel/preset-env'],
+                        }
+                    }
+                ]
             }
         ]
     }

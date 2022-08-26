@@ -1,14 +1,32 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "atest":
-/*!************************!*\
-  !*** external "atest" ***!
-  \************************/
-/***/ ((module) => {
+/***/ "./testResolve/atest.js":
+/*!******************************!*\
+  !*** ./testResolve/atest.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-module.exports = atest;
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar a = 12;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (a);\n\n//# sourceURL=webpack:///./testResolve/atest.js?");
+
+/***/ }),
+
+/***/ "./text.js":
+/*!*****************!*\
+  !*** ./text.js ***!
+  \*****************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var atest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! atest */ \"./testResolve/atest.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ \"lodash\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);\n\n // import style from './style.less';\n\nvar obj = {\n  name: '张三',\n  age: 19\n};\n\nvar myName = function myName(name) {\n  return \"myName is \".concat(name);\n};\n\nconsole.log((lodash__WEBPACK_IMPORTED_MODULE_1___default())); // 打印下second\n\nconsole.log(atest__WEBPACK_IMPORTED_MODULE_0__[\"default\"]); // 打一下style\n// console.log(style)\n\n//# sourceURL=webpack:///./text.js?");
 
 /***/ }),
 
@@ -90,33 +108,11 @@ module.exports = lodash;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!*****************!*\
-  !*** ./text.js ***!
-  \*****************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var atest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! atest */ "atest");
-/* harmony import */ var atest__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(atest__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './style.less'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-
-
-
-const obj ={
-    name:'张三',
-    age:19
-}
-console.log((lodash__WEBPACK_IMPORTED_MODULE_1___default()))
-// 打印下second
-console.log((atest__WEBPACK_IMPORTED_MODULE_0___default()))
-// 打一下style
-console.log(Object(function webpackMissingModule() { var e = new Error("Cannot find module './style.less'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
-
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./text.js");
+/******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=test.js.map
