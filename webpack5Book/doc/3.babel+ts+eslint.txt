@@ -1,0 +1,49 @@
+1. babel的使用
+    - 安装: npm i -D @babel/core @babel/preset-env babel-loader
+    - 添加预设: .babelrc, 内容: {presets: ['@babel/preset-env']}
+    - .babelrc:babel的配置文件,和bable.config.js一样,可以配置多个预设,主要是由2部分组成:presets和plugins
+        - 其中plugins里面的插件是顺序执行的,presets里面的预设是倒序执行的
+        - 常见的plugins:
+            - babel-preset-es2015:用于将es6语法转换成浏览器兼容的语法
+            - babel-preset-es2016:用于将es7语法转换成浏览器兼容的语法
+            - babel-preset-es2017:用于将es8语法转换成浏览器兼容的语法
+            - babel-preset-stage-x:将stage阶段的语法转换成浏览器兼容的语法
+            - Modules:将esm转换成其他的模块化语法
+        - 常见的presets
+            -　@babel/preset-env,智能预设,根据环境确定babel和polyfills
+            - babel-polyfill,@babel/preset-env只会转换语法,并不会转换相关的API,比如Map和Set
+2. typeScript的使用
+    - webpack介入ts的方法有很多种,比如ts-loader,awesome-ts-loader,babel-loader
+    - 一般的情况下,使用ts-loader安装如下
+        npm i -D typescript ts-loader
+         {
+              test: /\.ts$/,
+               use: [{
+                        loader: 'babel-loader',
+               }]
+         }
+    - 也可以是用babel-loader安装如下
+        npm i -D babel-loader @babel/preset-env @babel/core @babel/preset-typescript
+        {
+            test: /\.ts$/,
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env', '@babel/preset-typescript']
+                }
+            }]
+        }
+3. eslint的使用
+    - 下载eslint安装
+        npm i -D eslint eslint-webpack-plugin eslint-config-standard
+    - 配置eslint
+        在eslintrc文件中配置
+            "extends": ["standard"]
+        在webpack.config.js中配置
+            plugins: [
+                new eslintPlugin()
+            ]
+4. 总结:
+    1. babel的使用
+    2. 在项目里面是用typescript
+    3. eslint的使用

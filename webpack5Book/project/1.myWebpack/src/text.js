@@ -1,5 +1,5 @@
 import second from 'atest';
-import _ from 'lodash'
+import exportOfTs from './index'
 // import style from './style.less';
 const obj ={
     name:'张三',
@@ -8,8 +8,8 @@ const obj ={
 const myName = (name) => {
     return `myName is ${name}`
 }
-console.log(_)
 // 打印下second
 console.log(second)
 // 打一下style
 // console.log(style)
+console.log(exportOfTs)

@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./index.ts":
+/*!******************!*\
+  !*** ./index.ts ***!
+  \******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst str = 'this is a string used by babel-loader';\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (str);\n\n//# sourceURL=webpack:///./index.ts?");
+
+/***/ }),
+
 /***/ "./testResolve/atest.js":
 /*!******************************!*\
   !*** ./testResolve/atest.js ***!
@@ -26,17 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var atest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! atest */ \"./testResolve/atest.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ \"lodash\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);\n\n // import style from './style.less';\n\nvar obj = {\n  name: '张三',\n  age: 19\n};\n\nvar myName = function myName(name) {\n  return \"myName is \".concat(name);\n};\n\nconsole.log((lodash__WEBPACK_IMPORTED_MODULE_1___default())); // 打印下second\n\nconsole.log(atest__WEBPACK_IMPORTED_MODULE_0__[\"default\"]); // 打一下style\n// console.log(style)\n\n//# sourceURL=webpack:///./text.js?");
-
-/***/ }),
-
-/***/ "lodash":
-/*!*************************!*\
-  !*** external "lodash" ***!
-  \*************************/
-/***/ ((module) => {
-
-module.exports = lodash;
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var atest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! atest */ \"./testResolve/atest.js\");\n/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ \"./index.ts\");\n\n // import style from './style.less';\n\nvar obj = {\n  name: '张三',\n  age: 19\n};\n\nvar myName = function myName(name) {\n  return \"myName is \".concat(name);\n}; // 打印下second\n\n\nconsole.log(atest__WEBPACK_IMPORTED_MODULE_0__[\"default\"]); // 打一下style\n// console.log(style)\n\nconsole.log(_index__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n//# sourceURL=webpack:///./text.js?");
 
 /***/ })
 
@@ -67,18 +67,6 @@ module.exports = lodash;
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports

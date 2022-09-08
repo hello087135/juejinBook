@@ -1,0 +1,93 @@
+一. vueLoader的使用步骤
+    1. 安装vue-loader  // npm install --save-dev vue-loader
+    2. 在webpack.config.js中配置vue-loader
+        module: {
+            rules: [
+                {
+                    test: /\.vue$/,
+                    loader: 'vue-loader'
+                }
+            ]
+        }
+        plugins: [
+            new VueLoaderPlugin()
+        ]
+二.devServer的处理
+    1. 安装webpack-dev-server  // npm install --save-dev webpack-dev-server
+    2. 在webpack.config.js中配置devServer
+        devServer: {
+            port: 8080,
+            host: 'localhost',
+            hot: true,
+            open: true,
+            proxy: {
+                '/api': {
+                    target: 'http://localhost:3000',
+                    changeOrigin: true,
+                    pathRewrite: {
+                        '^/api': ''
+                    }
+                }
+            }
+        }
+    3. 启动
+        webpack serve
+三.复用其他的编译工具
+    1. 在vue中使用typescript
+        - 安装 // npm i -D typescript typescript-loader
+    2. 在webpack.config.js中配置typescript-loader
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    loader: 'ts-loader',
+                    exclude: /node_modules/
+                }
+            ]
+        }
+    3. 设置vue的lang属性
+        <script lang="ts">
+            export default {
+                data() {
+                    return {
+                        msg: 'hello'
+                    }
+                }
+            }
+        </script>
+四. vue使用less
+    1. 安装  // npm i -D less less-loader css-loader style-loader
+    2. 配置webpack.config.js
+        module: {
+            rules: [
+                {
+                    test: /\.less$/,
+                    use: [
+                        'style-loader',
+                        'css-loader',
+                        'less-loader'
+                    ]
+                }
+            ]
+        }
+    3.设置vue的lang属性
+        <style lang="less">
+            .red {
+                color: red;
+            }
+        </style>
+五. 使用server side render
+    1. spa单页面的缺点
+        - 首屏加载慢
+        - 不利于seo
+    2. ssr渲染的过程
+        - 首先webpack从不同的入口分别打包出client和server的bundle
+        - server bundle会在node环境下运行，生成html字符串
+        - client bundle会在浏览器环境下运行，生成虚拟dom
+        - 将server bundle生成的html字符串和client bundle生成的虚拟dom进行合并，最终生成完整的html
+
+总结:
+    1. vue-loader的使用步骤  // 安装.配置.插件.样式处理
+    2. webpack-dev-server的使用步骤  // 安装.devServer配置.启动
+    3. 在vue里面使用typescript  // 安装ts,配置webpack.rule,设置lang属性
+    4. 在vue里面使用less  // 安装less,配置webpack.rule,设置lang属性

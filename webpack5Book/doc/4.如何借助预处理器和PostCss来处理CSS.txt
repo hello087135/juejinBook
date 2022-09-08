@@ -1,0 +1,48 @@
+一.webPack如何处理CSS资源
+    1. css-loader:将css处理成module.exports=`${css}`的形式,可以使用js的方式来出css,以及他们的依赖关系
+    2. style-loader:将产物插入到style标签里面去使得样式生效.运行时通过injectStylesIntoStyleTag注入到页面里面去
+    3. mini-css-extract-plugin:将css抽离成.css文件,并且以link标签的形式引入,需要使用MiniCSSExtraPlugin.loader来替换style-loader
+    4. 使用html-webpack-plugin插件可以指定打包的模板,通过他的template参数来指定模板.
+二.使用预处理器
+    1. 安装
+        npm i -D less less-loader
+三.使用PostCss
+    1. 和传统的预处理器的区别
+        - 不需要而外的语法,根据CSS生成AST语法树,然后交由插件处理
+    2. 安装
+        - npm i -D postcss-loader autoprefixer cssnano postcss-preset-env postcss
+    3. 配置
+        - postcss.config.js
+            module.exports = {
+                plugins: [
+                    require('autoprefixer'),
+                    require('cssnano'),
+                    require('postcss-preset-env')
+                ]
+            }
+        - webpack.config.js
+            module: {
+                rules: [
+                    {
+                        test: /\.css$/,
+                        use: [
+                            MiniCSSExtraPlugin.loader,
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    importLoaders: 1
+                                }
+                            },
+                            'postcss-loader'
+                        ]
+                    }
+                ]
+            }
+        - 其中需要在css-loader中配置importLoaders,来指定在css-loader之前有几个loader,这样才能保证postcss-loader能够正确的处理css
+四. 总结
+    1. 需要掌握的用法
+        - css-loader
+        - style-loader
+        - mini-css-extract-plugin
+        - postcss-loader
+        - html-webpack-plugin

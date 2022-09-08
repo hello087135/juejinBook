@@ -1,4 +1,5 @@
 const path =require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports={
     mode:'development',
     entry:{
@@ -13,7 +14,7 @@ module.exports={
         alias:{
             'aa':path.resolve(__dirname,'./src/testResolve/')
         },
-        extensions:['.js','.json'],
+        extensions:['.ts','.js','.json'],
         modules:[path.resolve(__dirname,'./src/testResolve/'),'node_modules'],
     },
     externals:['lodash',],   // 不会去打包这个模块
@@ -39,23 +40,32 @@ module.exports={
                 test:/\.less$/,
                 use:[
                     'style-loader',
-                    'css-loader',
+                    'style-loader',
                     {
                         loader:'less-loader',
                     },
                 ],
             },
             {
-                test:/\.js$/,
-                use:[
+                test: /\.js$/,
+                use: [
                     {
-                        loader:'babel-loader',
-                        options:{
-                            presets:['@babel/preset-env'],
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env'],
                         }
                     }
                 ]
+            },
+            {
+                test: /\.ts$/,
+                use: [{
+                    loader: 'babel-loader',
+                }]
             }
         ]
-    }
+    },
+    plugins:[
+        new ESLintPlugin(),
+    ],
 }
