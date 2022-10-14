@@ -11,7 +11,7 @@ module.exports = Merge.merge(baseConfig, {
         client: path.resolve(__dirname, './src/entry-client.js'),
     },
     output: {
-        filename: 'index.js',
+        filename: 'index.css.js',
         publicPath: '/',
     },
     module: {
@@ -24,10 +24,10 @@ module.exports = Merge.merge(baseConfig, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './public/index.html'),
-         }),
+            template: path.resolve(__dirname, './public/index.css.html'),
+        }),
         new MiniCSSExtraPlugin({
-            filename: 'index.[contenthash].css',
+            filename: 'index.css.[contenthash].css',
         }),
         new WebpackManifestPlugin({
             fileName: 'manifest-client.json',

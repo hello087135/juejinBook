@@ -57,7 +57,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /*!**********************!*\
-  !*** ./src/index.js ***!
+  !*** ./src/index.css.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_test_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style/test.less */ "./src/style/test.less");

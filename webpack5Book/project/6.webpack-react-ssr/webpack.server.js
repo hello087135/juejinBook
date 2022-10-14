@@ -16,7 +16,7 @@ module.exports = Merge.merge(baseConfig, {
     module: {
         rules: [{
             test: /\.css$/,
-            loader: './Loader/index.js',
+            loader: './Loader/index.css.js',
         }]
     }
 })

@@ -29,7 +29,7 @@ module.exports = merge.merge(base, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './public/index.html'),
+            template: path.resolve(__dirname, './public/index.css.html'),
         }),
         new WebpackManifestPlugin({fileName: 'manifest-client.json'}),
         new NodePolyfillPlugin(),

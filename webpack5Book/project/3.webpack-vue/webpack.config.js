@@ -47,7 +47,7 @@ module.exports={
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: './public/index.html'
+            template: './public/index.css.html'
         })
     ],
     devServer: {

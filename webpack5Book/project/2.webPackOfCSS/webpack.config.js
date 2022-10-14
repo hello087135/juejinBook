@@ -29,8 +29,8 @@ module.exports = {
     plugins:[
         new MiniCSSExtraPlugin(),
         new HtmlWebpackPlugin({
-            minify:false,
-            template:'./public/index.html',
+            minify: false,
+            template: './public/index.css.html',
         })
     ],
 }
